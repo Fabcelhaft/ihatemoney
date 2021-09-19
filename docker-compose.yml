@@ -1,0 +1,28 @@
+version: '3.8'
+services: 
+  ihatemoney:
+    image: ghcr.io/kikkirej-server/ihatemoney-fork:master
+    restart: unless-stopped
+    labels: 
+      - server.user=${TRAEFIK_IDENT}
+      - traefik.enable=true
+      - "traefik.http.routers.ihatemoney.rule=Host(`ihatemoney.kikkirej.net`) || Host(`ihm.kikkirej.net`)"
+      - traefik.http.routers.ihatemoney.entrypoints=websecure
+    volumes: 
+      - database:/database
+    environment: 
+      - "ACTIVATE_ADMIN_DASHBOARD=True"
+      - "ADMIN_PASSWORD=pbkdf2:sha256:260000$$dHkK3iXxMFr7QXOF$$9cae4f7a52862ebd32f0c530bc77b90de5c51c33ee6a8694ec0776fe95f65b2d"
+      - "SECRET_KEY=CoKmbkrpwuxYNk74NWZjbfvs2"
+      - "ALLOW_PUBLIC_PROJECT_CREATION=False"
+      - "ACTIVATE_DEMO_PROJECT=True"
+    networks: 
+      - reverse-proxy
+
+volumes: 
+  database: {}
+
+networks:
+  reverse-proxy:
+    external: true
+    name: ${LOADBALANCER_NAME}_reverse-proxy
