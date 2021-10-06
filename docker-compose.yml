@@ -6,7 +6,7 @@ services:
     labels: 
       - server.user=${TRAEFIK_IDENT}
       - traefik.enable=true
-      - "traefik.http.routers.ihatemoney.rule=Host(`ihatemoney.kikkirej.net`) || Host(`ihm.kikkirej.net`)"
+      - "traefik.http.routers.ihatemoney.rule=Host(`ihatemoney.${DOMAIN}`) || Host(`ihm.${DOMAIN}`)"
       - traefik.http.routers.ihatemoney.entrypoints=websecure
     volumes: 
       - database:/database
