@@ -25,4 +25,4 @@ volumes:
 networks:
   reverse-proxy:
     external: true
-    name: ${LOADBALANCER_NAME}_reverse-proxy
+    name: ${LOADBALANCER_NAME}
