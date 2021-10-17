@@ -12,8 +12,8 @@ services:
       - database:/database
     environment: 
       - "ACTIVATE_ADMIN_DASHBOARD=True"
-      - "ADMIN_PASSWORD=pbkdf2:sha256:260000$$dHkK3iXxMFr7QXOF$$9cae4f7a52862ebd32f0c530bc77b90de5c51c33ee6a8694ec0776fe95f65b2d"
-      - "SECRET_KEY=CoKmbkrpwuxYNk74NWZjbfvs2"
+      - "ADMIN_PASSWORD=pbkdf2:sha256:260000$$vTzdALKAttA1wvcw$$acfa12d0778902518341239886e1983de6d5a647c8555799e5a88a44cb3bddd4" #fabcelhaft
+      - "SECRET_KEY=gfdtsj;lsdfjg;pdsfjp"
       - "ALLOW_PUBLIC_PROJECT_CREATION=False"
       - "ACTIVATE_DEMO_PROJECT=True"
     networks: 
